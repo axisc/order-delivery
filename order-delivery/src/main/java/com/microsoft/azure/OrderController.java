@@ -8,6 +8,7 @@ import javax.jms.TemporaryQueue;
 import javax.jms.Topic;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.jms.JmsProperties.DeliveryMode;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -54,7 +55,7 @@ public class OrderController {
     // -------------------Retrieve Single Order ------------------------------------------
  
     @GetMapping("/order/{id}")
-    public ResponseEntity<?> getUser(@PathVariable("id") long id) {
+    public ResponseEntity<?> getOrder(@PathVariable("id") long id) {
         Order order = orderService.findById(id);
         if (order == null) {
             return new ResponseEntity(new CustomErrorType("User with id " + id 
@@ -77,7 +78,7 @@ public class OrderController {
 			public Message postProcessMessage(Message message) throws JMSException {
 				message.setStringProperty("address", order.getAddress());
 				message.setJMSReplyTo(temporaryQueue);
-				return null;
+				return message;
 			}
 		});
 		

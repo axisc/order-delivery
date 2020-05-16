@@ -1,7 +1,13 @@
 package com.microsoft.azure.models;
 
-public class Order {
+import java.io.Serializable;
+
+public class Order implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5791765914874200387L;
 	private Long id;
 	private String orderString;
 	private String address;
