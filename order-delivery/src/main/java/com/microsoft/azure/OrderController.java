@@ -25,7 +25,7 @@ import com.microsoft.azure.models.Order;
 import com.microsoft.azure.service.OrderService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/")
 public class OrderController {
 	
 	@Autowired
@@ -42,7 +42,7 @@ public class OrderController {
 	
 	 // -------------------Retrieve All Orders ---------------------------------------------
 	 
-    @GetMapping(value = "/order/")
+    @GetMapping(value = "/order")
     public ResponseEntity<List<Order>> listAllUsers() {
         List<Order> order = orderService.findAllOrders();
         if (order.isEmpty()) {
@@ -53,7 +53,7 @@ public class OrderController {
  
     // -------------------Retrieve Single Order ------------------------------------------
  
-    @GetMapping("/user/{id}")
+    @GetMapping("/order/{id}")
     public ResponseEntity<?> getUser(@PathVariable("id") long id) {
         Order order = orderService.findById(id);
         if (order == null) {

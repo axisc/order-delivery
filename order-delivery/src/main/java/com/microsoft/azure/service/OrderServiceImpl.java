@@ -1,5 +1,6 @@
 package com.microsoft.azure.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -9,7 +10,7 @@ public class OrderServiceImpl implements OrderService {
 	
 	private static final AtomicLong counter = new AtomicLong();
 	
-	private static List<Order> orders;
+	private static List<Order> orders = new ArrayList<Order>();
 
 	@Override
 	public Order findById(long id) {
