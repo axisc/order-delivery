@@ -17,7 +17,7 @@ import com.microsoft.azure.service.OrderServiceImpl;
 @Configuration
 public class JmsConfig {
 	
-	private static final String RESPONSE_QUEUE = "responseQueue";
+	public static final String RESPONSE_QUEUE = "responseQueue";
 
 	@Bean
 	public Topic topic() {
