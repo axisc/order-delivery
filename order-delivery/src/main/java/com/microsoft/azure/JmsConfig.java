@@ -2,6 +2,7 @@ package com.microsoft.azure;
 
 import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
+import javax.jms.Queue;
 import javax.jms.TemporaryQueue;
 import javax.jms.Topic;
 
@@ -31,18 +32,25 @@ public class JmsConfig {
 	}
 	
 	@Bean
-	public TemporaryQueue temporaryQueue() {
-		return new TemporaryQueue() {
+	public Queue queue() {
+		return new Queue() {
 			
 			@Override
 			public String getQueueName() throws JMSException {
 				return RESPONSE_QUEUE;
 			}
-			
-			@Override
-			public void delete() throws JMSException {
-			}
 		};
+//		return new TemporaryQueue() {
+//			
+//			@Override
+//			public String getQueueName() throws JMSException {
+//				return RESPONSE_QUEUE;
+//			}
+//			
+//			@Override
+//			public void delete() throws JMSException {
+//			}
+//		};
 	}
 	
 	@Bean

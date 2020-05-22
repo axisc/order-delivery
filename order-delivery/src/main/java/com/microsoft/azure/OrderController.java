@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.jms.JMSException;
 import javax.jms.Message;
+import javax.jms.Queue;
 import javax.jms.TemporaryQueue;
 import javax.jms.Topic;
 
@@ -32,7 +33,7 @@ public class OrderController {
 	private Topic topic;
 	
 	@Autowired
-	private TemporaryQueue temporaryQueue;
+	private Queue queue;
 	
 	@Autowired
 	private JmsTemplate jmsTemplate;
@@ -76,7 +77,7 @@ public class OrderController {
 			@Override
 			public Message postProcessMessage(Message message) throws JMSException {
 				message.setStringProperty("address", order.getAddress());
-				message.setJMSReplyTo(temporaryQueue);
+				message.setJMSReplyTo(queue);
 				return message;
 			}
 		});

@@ -49,4 +49,20 @@ public class StoreController {
 		
 		return new ResponseEntity<Order>(order, HttpStatus.OK);
 	}
+	
+	@GetMapping(value = "/complete/{id}")
+	public ResponseEntity<Order> completeOrder(@PathVariable("id") long id) {
+		
+		Order order = storeOrderService.findById(id);
+		if (order == null) {
+			return new ResponseEntity(HttpStatus.NOT_FOUND);
+		}
+		
+		order.setState("completed");
+		storeOrderService.updateStateOnOrder(id, "completed");
+		
+		jmsTemplate.convertAndSend(storeOrderService.findReplyToDestinationById(id), order);
+		
+		return new ResponseEntity<Order>(order, HttpStatus.OK);
+	}
 }
