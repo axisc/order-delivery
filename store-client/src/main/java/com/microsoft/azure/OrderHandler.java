@@ -16,8 +16,7 @@ public class OrderHandler {
 	private StoreOrderService storeOrderService;
 
 	@JmsListener(destination = JmsConfig.ORDER_REQUEST_TOPIC, subscription = "orderSubscriber" )
-	public void receiveOrderRequests(@Payload Order storeOrder, JmsMessageHeaderAccessor jmsHeaderAccessor) {
-//		storeOrder.setReplyTo(jmsHeaderAccessor.getReplyTo());
-		storeOrderService.saveOrder(storeOrder);
+	public void receiveOrderRequests(@Payload Order order, JmsMessageHeaderAccessor jmsHeaderAccessor) {
+		storeOrderService.saveOrder(order, jmsHeaderAccessor.getReplyTo());
 	}
 }

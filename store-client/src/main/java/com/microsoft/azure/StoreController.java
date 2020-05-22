@@ -37,16 +37,16 @@ public class StoreController {
 	@GetMapping(value = "/accept/{id}")
 	public ResponseEntity<Order> acceptOrder(@PathVariable("id") long id) {
 		
-		Order storeOrder = storeOrderService.findById(id);
-		if (storeOrder == null) {
+		Order order = storeOrderService.findById(id);
+		if (order == null) {
 			return new ResponseEntity(HttpStatus.NOT_FOUND);
 		}
 		
-		storeOrder.setState("accepted");
+		order.setState("accepted");
 		storeOrderService.updateStateOnOrder(id, "accepted");
 		
-//		jmsTemplate.convertAndSend(storeOrder.getReplyTo(), storeOrder);
+		jmsTemplate.convertAndSend(storeOrderService.findReplyToDestinationById(id), order);
 		
-		return new ResponseEntity<Order>(storeOrder, HttpStatus.OK);
+		return new ResponseEntity<Order>(order, HttpStatus.OK);
 	}
 }
