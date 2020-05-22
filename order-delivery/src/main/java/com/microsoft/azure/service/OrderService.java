@@ -2,7 +2,7 @@ package com.microsoft.azure.service;
 
 import java.util.List;
 
-import com.microsoft.azure.models.Order;
+import com.microsoft.azure.models.common.Order;
 
 public interface OrderService {
 	

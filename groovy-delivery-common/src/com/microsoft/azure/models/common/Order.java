@@ -1,4 +1,4 @@
-package com.microsoft.azure.models;
+package com.microsoft.azure.models.common;
 
 import java.io.Serializable;
 
@@ -7,7 +7,7 @@ public class Order implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 5791765914874200387L;
+	private static final long serialVersionUID = 4L;
 	private Long id;
 	private String orderString;
 	private String address;
@@ -17,10 +17,11 @@ public class Order implements Serializable {
 		super();
 	}
 	
-	public Order(String orderString, String address) {
+	public Order(String orderString, String address, String state) {
 		super();
 		this.setOrderString(orderString);
 		this.setAddress(address);
+		this.setState(state);
 	}
 	
 	public void setId(Long id) {
@@ -54,6 +55,5 @@ public class Order implements Serializable {
 	public void setState(String state) {
 		this.state = state;
 	}
-	
 
 }

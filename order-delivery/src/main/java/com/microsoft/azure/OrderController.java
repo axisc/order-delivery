@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.microsoft.azure.models.Order;
+import com.microsoft.azure.models.common.Order;
 import com.microsoft.azure.service.OrderService;
 
 @RestController

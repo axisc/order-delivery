@@ -5,7 +5,7 @@ import org.springframework.jms.annotation.JmsListener;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
 
-import com.microsoft.azure.models.Order;
+import com.microsoft.azure.models.common.Order;
 import com.microsoft.azure.service.OrderService;
 
 @Component
