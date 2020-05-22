@@ -8,7 +8,6 @@ import javax.jms.TemporaryQueue;
 import javax.jms.Topic;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.jms.JmsProperties.DeliveryMode;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
