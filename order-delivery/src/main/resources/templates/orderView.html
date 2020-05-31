@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Result</h1>
+    <p th:text="'id: ' + ${order.id}" />
+    <p th:text="'Order: ' + ${order.orderString}" />
+    <p th:text="'Address: ' + ${order.address}" />
+    <p th:text="'State: ' + ${order.state}" />
+    <a href="/orderadd">Submit another Order</a>
+</body>
+</html>
