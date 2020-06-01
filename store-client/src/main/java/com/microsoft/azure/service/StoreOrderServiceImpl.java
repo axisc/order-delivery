@@ -4,15 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicLong;
 
 import javax.jms.Destination;
 
 import com.microsoft.azure.models.common.Order;
 
 public class StoreOrderServiceImpl implements StoreOrderService {
-	
-	private static final AtomicLong counter = new AtomicLong();
 	
 	private static List<Order> orders = new ArrayList<Order>();
 	private static Map<Long, Destination> idToReplyToDestination = new HashMap<Long, Destination>();
@@ -28,7 +25,6 @@ public class StoreOrderServiceImpl implements StoreOrderService {
 
 	@Override
 	public void saveOrder(Order order, Destination destination) {
-		order.setId(counter.incrementAndGet());
 		orders.add(order);
 		idToReplyToDestination.put(order.getId(), destination);
 	}
