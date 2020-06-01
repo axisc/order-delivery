@@ -10,6 +10,10 @@
     <p th:text="'Order: ' + ${order.orderString}" />
     <p th:text="'Address: ' + ${order.address}" />
     <p th:text="'State: ' + ${order.state}" />
-    <a href="/orderadd">Submit another Order</a>
+    
+    <form action="/orderadd">
+    	<input type="submit" value="Submit another Order" />
+	</form>
+    
 </body>
 </html>

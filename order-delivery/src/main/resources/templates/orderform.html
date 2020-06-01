@@ -1,16 +1,16 @@
 <!DOCTYPE HTML>
 <html xmlns:th="https://www.thymeleaf.org">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <head>
-    <title>Getting Started: Handling Form Submission</title>
+    <title>Order delivery</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 	<h1>Add an order</h1>
     <form action="#" th:action="@{/orderadd}" th:object="${order}" method="post">
-    	<p>Id: <input type="text" th:field="*{id}" /></p>
-        <p>Order: <input type="text" th:field="*{orderString}" /></p>
-        <p> Address: <input type="text" th:field="*{address}" /> </p>
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+        Order: <input type="text" th:field="*{orderString}" />
+        Address: <input type="text" th:field="*{address}" />
+        <input type="submit" value="Submit" /> <input type="reset" value="Reset" />
     </form>
 </body>
 </html>
