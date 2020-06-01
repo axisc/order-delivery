@@ -43,7 +43,7 @@ public class StoreWebController {
 		
 		jmsTemplate.convertAndSend(storeOrderService.findReplyToDestinationById(id), order);
 		
-		return viewAllOrders(model);
+		return "redirect:../orderrequests";
 	}
 	
 	@GetMapping("complete/{id}")
@@ -59,7 +59,7 @@ public class StoreWebController {
 		
 		jmsTemplate.convertAndSend(storeOrderService.findReplyToDestinationById(id), order);
 		
-		return viewAllOrders(model);
+		return "redirect:../orderrequests";
 	}
 	
 }
