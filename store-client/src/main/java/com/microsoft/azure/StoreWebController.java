@@ -19,6 +19,11 @@ public class StoreWebController {
 	@Autowired
 	private StoreOrderService storeOrderService;
 	
+	@GetMapping("/")
+	public String index() {
+		return "redirect:orderrequests";
+	}
+	
 	@GetMapping("/orderrequests")
 	public String viewAllOrders(Model model) {
 		model.addAttribute("orders", storeOrderService.findAllOrders());

@@ -32,6 +32,11 @@ public class OrderWebController {
 	
 	@Autowired
 	private OrderService orderService;
+	
+	@GetMapping("/")
+	public String index() {
+		return "redirect:orderview";
+	}
 
 	// ----------- Order form -----------------//
 	@GetMapping("/orderadd")
