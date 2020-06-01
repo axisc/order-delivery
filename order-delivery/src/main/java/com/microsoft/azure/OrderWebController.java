@@ -68,4 +68,11 @@ public class OrderWebController {
 		model.addAttribute("order", order);
 		return "orderView";
 	}
+	
+	// ------------- View all orders ---------------//
+	@GetMapping("/orderview")
+	public String viewAllOrders(Model model) {
+		model.addAttribute("orders", orderService.findAllOrders());
+		return "viewAllOrders";
+	}
 }

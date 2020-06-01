@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>All orders</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1> All orders </h1>
+	<ul>
+		<li th:each="order: ${orders}">
+		    <p th:text="'id: ' + ${order.id} + ' Order: ' + ${order.orderString} + ' Address: ' + ${order.address} + ' State: ' + ${order.state}" />
+		</li>
+	</ul>
+
+    <a href="/orderadd">Submit another Order</a>
+</body>
+</html>

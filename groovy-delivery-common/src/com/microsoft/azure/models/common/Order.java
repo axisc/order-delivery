@@ -11,7 +11,7 @@ public class Order implements Serializable {
 	private Long id;
 	private String orderString;
 	private String address;
-	private String state;
+	private String state = "Created";
 	
 	public Order() {
 		super();
