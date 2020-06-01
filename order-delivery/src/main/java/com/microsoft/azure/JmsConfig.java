@@ -11,12 +11,16 @@ import org.springframework.context.annotation.Configuration;
 
 import com.microsoft.azure.service.OrderService;
 import com.microsoft.azure.service.OrderServiceImpl;
+import com.microsoft.azure.servicebus.jms.ServiceBusJmsConnectionFactory;
+import com.microsoft.azure.servicebus.jms.ServiceBusJmsConnectionFactorySettings;
 
 @Configuration
 public class JmsConfig {
 	
 	public static final String RESPONSE_QUEUE = "responseQueue";
 	public static final String ORDER_REQUEST_TOPIC = "orderRequestTopic";
+	
+	private static final String SERVICEBUS_CONNSTRING="ADD SERVICE BUS CONNECTION STRING HERE";
 
 	@Bean
 	public Topic topic() {
@@ -42,10 +46,10 @@ public class JmsConfig {
 	
 	@Bean
 	public ConnectionFactory factory() {
-		ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory(); 
-		factory.setTrustAllPackages(true);
-		return factory;
+		ServiceBusJmsConnectionFactorySettings settings = new ServiceBusJmsConnectionFactorySettings();
+		return new ServiceBusJmsConnectionFactory(SERVICEBUS_CONNSTRING, settings);
 	}
+	
 	
 	@Bean
 	public OrderService orderService() {
