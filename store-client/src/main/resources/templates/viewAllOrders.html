@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>All orders</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1> Store client - All Order Requests </h1>
+	<ul>
+		<li th:each="order: ${orders}">
+		    <p th:text="'id: ' + ${order.id} + ' Order: ' + ${order.orderString} + ' Address: ' + ${order.address} + ' State: ' + ${order.state}" />
+		    <a th:href="@{'/accept/' + ${order.id}}">Accept</a>
+		    <a th:href="@{'/complete/' + ${order.id}}">Complete</a>
+		</li>
+	</ul>
+</body>
+</html>

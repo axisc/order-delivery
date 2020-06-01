@@ -42,7 +42,7 @@ public class OrderWebController {
 	
 	// ---------- Create Order ----------------//
 	@PostMapping("/orderadd")
-	public String orderSubmit(@ModelAttribute Order order) {
+	public String orderSubmit(@ModelAttribute Order order, Model model) {
 		
 		orderService.saveOrder(order);
 		jmsTemplate.convertAndSend(topic, order, new MessagePostProcessor() {
@@ -54,7 +54,7 @@ public class OrderWebController {
 				return message;
 			}
 		});
-		return "orderView";
+		return viewAllOrders(model);
 	}
 	
 	// ------------- View order -------------------//
