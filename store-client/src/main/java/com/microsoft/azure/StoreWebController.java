@@ -39,7 +39,7 @@ public class StoreWebController {
 		}
 		
 		order.setState("accepted");
-		storeOrderService.updateStateOnOrder(id, "accepted");
+		storeOrderService.updateStateOnOrder(id, "Accepted");
 		
 		jmsTemplate.convertAndSend(storeOrderService.findReplyToDestinationById(id), order);
 		
@@ -55,7 +55,7 @@ public class StoreWebController {
 		}
 		
 		order.setState("completed");
-		storeOrderService.updateStateOnOrder(id, "completed");
+		storeOrderService.updateStateOnOrder(id, "Completed");
 		
 		jmsTemplate.convertAndSend(storeOrderService.findReplyToDestinationById(id), order);
 		

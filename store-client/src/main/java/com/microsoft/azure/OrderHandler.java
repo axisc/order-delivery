@@ -15,7 +15,7 @@ public class OrderHandler {
 	@Autowired
 	private StoreOrderService storeOrderService;
 
-	@JmsListener(destination = JmsConfig.ORDER_REQUEST_TOPIC, subscription = "orderSubscriber" )
+	@JmsListener(destination = JmsConfig.ORDER_REQUEST_TOPIC, subscription = "orderSubscriber", selector="address='Seattle'" )
 	public void receiveOrderRequests(@Payload Order order, JmsMessageHeaderAccessor jmsHeaderAccessor) {
 		storeOrderService.saveOrder(order, jmsHeaderAccessor.getReplyTo());
 	}
