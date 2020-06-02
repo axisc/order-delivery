@@ -12,7 +12,7 @@ import com.microsoft.azure.service.StoreOrderServiceImpl;
 @Configuration
 public class JmsConfig {
 	
-	public static final String ORDER_REQUEST_TOPIC = "testTopic";
+	public static final String ORDER_REQUEST_TOPIC = "orderRequestTopic";
 	
 	@Bean
 	public ConnectionFactory factory() {

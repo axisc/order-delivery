@@ -16,6 +16,7 @@ import com.microsoft.azure.service.OrderServiceImpl;
 public class JmsConfig {
 	
 	public static final String RESPONSE_QUEUE = "responseQueue";
+	public static final String ORDER_REQUEST_TOPIC = "orderRequestTopic";
 
 	@Bean
 	public Topic topic() {
@@ -23,7 +24,7 @@ public class JmsConfig {
 			
 			@Override
 			public String getTopicName() throws JMSException {
-				return "testTopic";
+				return ORDER_REQUEST_TOPIC;
 			}
 		};
 	}
